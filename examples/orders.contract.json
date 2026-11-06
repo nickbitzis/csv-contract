@@ -1,0 +1,164 @@
+{
+  "source": "orders_2026_09.csv",
+  "rows": 1500,
+  "columns": [
+    {
+      "name": "order_id",
+      "type": "string",
+      "nullable": false,
+      "unique": true,
+      "pattern": "^[A-Z]{3}\\-\\d{6}$",
+      "max_length": 10,
+      "null_share": 0.0
+    },
+    {
+      "name": "customer_id",
+      "type": "string",
+      "nullable": false,
+      "unique": false,
+      "pattern": "^[A-Z]{1}\\d{5}$",
+      "max_length": 6,
+      "null_share": 0.0
+    },
+    {
+      "name": "order_date",
+      "type": "date",
+      "nullable": false,
+      "unique": false,
+      "min": "2026-09-01",
+      "max": "2026-09-30",
+      "null_share": 0.0
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "nullable": false,
+      "unique": false,
+      "allowed": [
+        "cancelled",
+        "completed",
+        "returned",
+        "shipped"
+      ],
+      "max_length": 9,
+      "null_share": 0.0,
+      "dist": {
+        "values": {
+          "cancelled": 0.1527,
+          "completed": 0.5593,
+          "returned": 0.1347,
+          "shipped": 0.1533
+        }
+      }
+    },
+    {
+      "name": "country",
+      "type": "string",
+      "nullable": false,
+      "unique": false,
+      "allowed": [
+        "AU",
+        "CA",
+        "DE",
+        "GB",
+        "US"
+      ],
+      "max_length": 2,
+      "null_share": 0.0,
+      "dist": {
+        "values": {
+          "AU": 0.136,
+          "CA": 0.132,
+          "DE": 0.142,
+          "GB": 0.148,
+          "US": 0.442
+        }
+      }
+    },
+    {
+      "name": "channel",
+      "type": "string",
+      "nullable": false,
+      "unique": false,
+      "allowed": [
+        "app",
+        "store",
+        "web"
+      ],
+      "max_length": 5,
+      "null_share": 0.0,
+      "dist": {
+        "values": {
+          "app": 0.25,
+          "store": 0.242,
+          "web": 0.508
+        }
+      }
+    },
+    {
+      "name": "items",
+      "type": "integer",
+      "nullable": false,
+      "unique": false,
+      "min": 1,
+      "max": 4,
+      "null_share": 0.0,
+      "dist": {
+        "edges": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "shares": [
+          0.0,
+          0.4247,
+          0.2973,
+          0.1407,
+          0.1373
+        ]
+      }
+    },
+    {
+      "name": "amount",
+      "type": "number",
+      "nullable": false,
+      "unique": false,
+      "min": 6.07,
+      "max": 437.03,
+      "null_share": 0.0,
+      "dist": {
+        "edges": [
+          22.6,
+          33.02,
+          44.75,
+          56.44,
+          71.47,
+          89.19,
+          109.08,
+          132.01,
+          173.38
+        ],
+        "shares": [
+          0.1,
+          0.0993,
+          0.1007,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      }
+    },
+    {
+      "name": "is_gift",
+      "type": "boolean",
+      "nullable": false,
+      "unique": false,
+      "null_share": 0.0
+    }
+  ]
+}
