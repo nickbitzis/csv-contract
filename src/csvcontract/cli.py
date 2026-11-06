@@ -9,7 +9,7 @@ from dataclasses import asdict
 from pathlib import Path
 
 from . import __version__
-from .contract import ERROR, WARN, Contract, check, infer, is_null, load_csv
+from .contract import ERROR, WARN, Contract, check, infer, load_csv
 from .sample import build
 
 

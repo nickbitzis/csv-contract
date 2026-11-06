@@ -5,7 +5,18 @@ import pytest
 
 from csvcontract import cli
 from csvcontract.contract import (
-    ERROR, WARN, Contract, bin_shares, check, infer, infer_type, psi, quantile_edges, read_csv, shape, shape_regex,
+    ERROR,
+    WARN,
+    Contract,
+    bin_shares,
+    check,
+    infer,
+    infer_type,
+    psi,
+    quantile_edges,
+    read_csv,
+    shape,
+    shape_regex,
 )
 from csvcontract.sample import build
 

@@ -45,7 +45,7 @@ def parse(v: str, kind: str):
     if kind == "date":
         return date.fromisoformat(v) if re.fullmatch(r"\d{4}-\d{2}-\d{2}", v) else _bad()
     if kind == "datetime":
-        return datetime.fromisoformat(v.replace("Z", "+00:00")) if "T" in v else _bad()
+        return datetime.fromisoformat(v.replace("Z", "+00:00")) if "T" in v else _bad()  # noqa: FURB162
     return v
 
 
@@ -140,7 +140,7 @@ class Contract:
         return {"source": self.source, "rows": self.rows, "columns": [{k: v for k, v in asdict(c).items() if v is not None} for c in self.columns]}
 
     @classmethod
-    def from_dict(cls, d: dict) -> "Contract":
+    def from_dict(cls, d: dict) -> Contract:
         return cls([Column(**c) for c in d["columns"]], d.get("rows", 0), d.get("source", ""))
 
 
@@ -215,7 +215,7 @@ def check(contract: Contract, header: list[str], rows: list[list[str]], drift_wa
         bad: dict[str, list[int]] = {}
 
         def flag(rule, n):
-            bad.setdefault(rule, []).append(n)
+            bad.setdefault(rule, []).append(n)  # noqa: B023  used only within this iteration
 
         values, seen = [], {}
         for n, r in enumerate(rows, start=1):
